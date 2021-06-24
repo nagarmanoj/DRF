@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <h1>{{ post.title }}</h1>
+      
+      <small>
+
+          {{ post.created_on.date }} |&nbsp;
+
+          Categories:&nbsp;
+
+          {% for category in post.category.all %}
+
+          <a href="{% url 'blog_category' category.name %}">
+
+              {{ category.name }}
+
+          </a>&nbsp;
+
+          {% endfor %}
+
+      </small>
+
+      <p>{{ post.body | linebreaks }}</p>
+      </div>
+
+  </body>
+</html>
